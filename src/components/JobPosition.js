@@ -22,7 +22,7 @@ export const JobPosition = ({
         onClick={() => setIsExpanded(!isExpanded)}
         className='focus:outline-none flex lg:flex-row flex-col justify-between lg:items-center w-full py-4 px-1 border-t border-gray-200'
       >
-        <div className='flex items-start flex-col'>
+        <div className='flex items-start text-left flex-col'>
           <span className='font-bold'>{title}</span>
           <span>{`${job_type} | $${salary_range[0]} - $${salary_range[1]} an hour | ${city}`}</span>
         </div>
@@ -33,15 +33,15 @@ export const JobPosition = ({
       {isExpanded && (
         <div className='flex flex-col lg:flex-row w-full lg:items-center'>
           <div className='flex flex-1 flex-col p-1'>
-            <div className='flex mb-2'>
+            <div className='flex flex-col lg:flex-row mb-2'>
               <span className='font-bold w-48'>Department:</span>
               <p className='break-words w-64'>{getDepartments(department)}</p>
             </div>
-            <div className='flex mb-2'>
+            <div className='flex flex-col lg:flex-row mb-2'>
               <span className='font-bold w-48'>Hours / shift:</span>
               <p className='break-words w-64'>{`${hours[0]} hours / shift`}</p>
             </div>
-            <div className='flex'>
+            <div className='flex flex-col lg:flex-row '>
               <span className='font-bold w-48'>Summary:</span>
               <p className='break-words w-64'>{summary}</p>
             </div>

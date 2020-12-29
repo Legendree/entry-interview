@@ -17,10 +17,12 @@ export const JobListing = ({
         className='flex flex-col m-2 focus:outline-none'
       >
         <div className='flex items-center'>
-          <div className='flex uppercase items-center justify-center bg-gray-300 w-8 h-8 rounded-lg text-white text-lg font-medium '>
-            {getInitialis(name)}
+          <div className='flex uppercase rounded-lg justify-center items-center bg-gray-300'>
+            <span className='w-8 h-8 text-white text-lg font-medium flex items-center justify-center'>
+              {getInitialis(name)}
+            </span>
           </div>
-          <span className='ml-3'>
+          <span className='ml-3 text-left break-words'>
             {positions} jobs for {name}
           </span>
         </div>
