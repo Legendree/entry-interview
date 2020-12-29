@@ -7,6 +7,7 @@ import jobs from './data/jobs.json';
 import filters from './data/filters.json';
 import { RightBar } from './components/RightBar';
 import { Footer } from './components/Footer';
+import { Close } from './vectors/ Close';
 
 export const App = () => {
   const [job, setJob] = useState(jobs);
@@ -50,12 +51,15 @@ export const App = () => {
           className='absolute flex h-full w-full bg-black bg-opacity-25'
         >
           <div className='fixed flex h-screen w-full justify-center items-center'>
-            <div className='flex  flex-col h-64 w-32 bg-white p-4 rounded-lg shadow-xl'>
-              <div classNam='flex w-full justify-between border-b border-gray-200 py-2'>
-                <span>departments</span>
-                <span>X</span>
+            <div className='flex flex-col h-64 w-2/3 bg-white rounded shadow-xl'>
+              <div className='flex justify-between items-center p-4'>
+                <span className='text-xl font-medium'>department</span>
+                <button className='w-3 h-4'>
+                  <Close />
+                </button>
               </div>
-              <div className='flex'>sdsdsds</div>
+              <div className='border-b border-gray-200' />
+              <div className='flex flex-wrap p-4'></div>
             </div>
           </div>
         </div>
