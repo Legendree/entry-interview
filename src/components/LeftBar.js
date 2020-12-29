@@ -23,7 +23,7 @@ export const LeftBar = ({ data, onClickMore }) => {
       <div className='w-full mb-5 bg-white border border-gray-200 p-3 text-xs'>
         <span className='font-medium'>DEPARTMENT</span>
         <ul className='mt-2'>
-          {data.department.slice(0, 15).map((job) => (
+          {data.department.slice(0, 9).map((job) => (
             <li className='my-2' key={job.key}>
               <a href='#'>
                 <span className='mr-2'>{job.key}</span>

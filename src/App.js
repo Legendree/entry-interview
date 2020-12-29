@@ -8,6 +8,7 @@ import filters from './data/filters.json';
 import { RightBar } from './components/RightBar';
 import { Footer } from './components/Footer';
 import { Close } from './vectors/ Close';
+import { numberWithCommas } from './utils/helpers';
 
 export const App = () => {
   const [job, setJob] = useState(jobs);
@@ -51,7 +52,7 @@ export const App = () => {
           className='absolute flex h-full w-full bg-black bg-opacity-25'
         >
           <div className='fixed flex h-screen w-full justify-center items-center'>
-            <div className='flex flex-col h-64 w-2/3 bg-white rounded shadow-xl'>
+            <div className='flex flex-col w-3/4 bg-white rounded shadow-xl'>
               <div className='flex justify-between items-center p-4'>
                 <span className='text-xl font-medium'>department</span>
                 <button className='w-3 h-4'>
@@ -59,7 +60,20 @@ export const App = () => {
                 </button>
               </div>
               <div className='border-b border-gray-200' />
-              <div className='flex flex-wrap p-4'></div>
+              <div className='flex flex-wrap justify-between p-4 text-xs'>
+                {filters.department.map((dep) => (
+                  <a
+                    key={dep.key}
+                    className='w-1/4 break-words m-2'
+                    href='#job'
+                  >
+                    <span className='mr-2'>{dep.key}</span>
+                    <span className='text-gray-400'>
+                      {numberWithCommas(dep.doc_count)}
+                    </span>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>
