@@ -2,7 +2,7 @@
 
 Built with React via create-react-app & TailwindCSS
 
-https://entry-interview-887sm12g4.vercel.app/
+https://entry-interview.vercel.app/
 
 ## Installation
 
