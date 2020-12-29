@@ -21,6 +21,6 @@ Run `yarn start` to start the development server and view the application.
 - [x] Desktop Design
 - [ ] Sort by options
 - [ ] Filter by categories
-- [ ] Resposnive web layout
-- [ ] Footer
+- [x] Resposnive web layout
+- [x] Footer
 - [ ] Pop-up window for categories
