@@ -13,7 +13,7 @@ export const SearchBar = ({
         <Search />
       </div>
       <input
-        onChange={(evnt) => search(evnt.currentTarget.value)}
+        onChange={(evnt) => search(evnt.target.value)}
         className='w-full h-full focus:outline-none font-light text-sm'
         type='text'
         placeholder='Search for any job, title, keywords or company'
