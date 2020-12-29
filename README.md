@@ -23,4 +23,4 @@ Run `yarn start` to start the development server and view the application.
 - [ ] Filter by categories
 - [x] Resposnive web layout
 - [x] Footer
-- [ ] Pop-up window for categories
+- [x] Pop-up window for categories
