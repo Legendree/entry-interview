@@ -10,7 +10,7 @@ Clone the repo on your desktop
 git clone https://github.com/Legendree/entry-interview.git
 ```
 
-Run `yarn` to fetch necessery dependencies
+Run `yarn` to fetch necessary dependencies
 
 Run `yarn start` to start the development server and view the application.
 

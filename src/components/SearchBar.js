@@ -8,7 +8,7 @@ export const SearchBar = ({
   },
 }) => {
   return (
-    <div className='flex m-5 bg-white h-12 px-6 items-center border border-gray-200'>
+    <div className='flex lg:m-5 bg-white h-12 px-6 items-center border-t lg:border border-gray-200'>
       <div className='w-4 h-4 mr-3'>
         <Search />
       </div>

@@ -4,7 +4,7 @@ import { numberWithCommas } from '../utils/helpers';
 
 export const LeftBar = ({ data }) => {
   return (
-    <div className='flex flex-col w-64 mr-5'>
+    <div className='hidden lg:flex flex-col w-64 mr-5'>
       <div className='w-full mb-5 bg-white border border-gray-200 p-3'>
         <span className='text-xs font-medium'>JOB TYPE</span>
         <ul className='text-xs mt-2'>

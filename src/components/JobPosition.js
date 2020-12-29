@@ -16,7 +16,7 @@ export const JobPosition = ({
     <div>
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className='focus:outline-none flex justify-between items-center w-full mt-2 py-4 px-1 border-t border-gray-200'
+        className='focus:outline-none flex lg:flex-row flex-col justify-between lg:items-center w-full py-4 px-1 border-t border-gray-200'
       >
         <div className='flex items-start flex-col'>
           <span className='font-bold'>{title}</span>
@@ -25,7 +25,7 @@ export const JobPosition = ({
         <span>3 weeks ago</span>
       </button>
       {isExpanded && (
-        <div className='flex w-full items-center'>
+        <div className='flex flex-col lg:flex-row w-full lg:items-center'>
           <div className='flex flex-1 flex-col p-1'>
             <div className='flex mb-2'>
               <span className='font-bold w-48'>Department:</span>
@@ -40,11 +40,11 @@ export const JobPosition = ({
               <p className='break-words w-64'>{summary}</p>
             </div>
           </div>
-          <div className='flex w-48 flex-col items-end'>
-            <button className=' bg-blue-500 text-white rounded-lg px-5 py-2 '>
+          <div className='flex lg:w-48 lg:flex-col lg:items-end'>
+            <button className=' bg-blue-500 text-white rounded-lg px-5 py-2 m-1'>
               Job details
             </button>
-            <button className='border border-blue-500 text-blue-500 rounded-lg px-5 py-2 mt-2'>
+            <button className='border border-blue-500 text-blue-500 rounded-lg px-5 py-2 m-1'>
               Save job
             </button>
           </div>

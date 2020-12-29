@@ -9,3 +9,11 @@ export const getInitialis = (x) => {
 export const getDepartments = (x) => {
   return x.join().replaceAll(',', ', ');
 };
+
+export const getAllJobsAmount = (jobs) => {
+  let length = 0;
+  jobs.forEach((listing) => {
+    length += listing.items.length;
+  });
+  return length;
+};
