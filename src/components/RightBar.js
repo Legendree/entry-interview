@@ -1,5 +1,6 @@
 import React from 'react';
 import { JobListing } from './JobListing';
+import { SortingButton } from './SortingButton';
 
 export const RightBar = ({ data }) => {
   return (
@@ -8,13 +9,13 @@ export const RightBar = ({ data }) => {
         <div>
           <span className='font-bold'>7,753</span> <span>job postings</span>
         </div>
-        <div>
+        <div className='flex'>
           <span className='text-gray-400 mr-2'>Sort by</span>
-          <button className='mr-2 focus:outline-none'>Location</button>
-          <button className='mr-2 focus:outline-none'>Role</button>
-          <button className='mr-2 focus:outline-none'>Department</button>
-          <button className='mr-2 focus:outline-none'>Education</button>
-          <button className='ml-2 focus:outline-none'>Experience</button>
+          <SortingButton name='Location' />
+          <SortingButton name='Role' />
+          <SortingButton name='Department' />
+          <SortingButton name='Education' />
+          <SortingButton name='Experience' />
         </div>
       </div>
       <div className='flex flex-col'>

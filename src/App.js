@@ -30,6 +30,10 @@ export const App = () => {
     setJob(filtered);
   };
 
+  const sortJobs = () => {};
+
+  const getAllJobsAmount = () => {};
+
   return (
     <div className='flex flex-col flex-1 min-h-screen bg-gray-100'>
       <Header />
