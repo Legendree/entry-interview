@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { getInitialis } from '../utils/helpers';
 import { JobPosition } from './JobPosition';
 
+import { v4 as uuidv4 } from 'uuid';
+
 export const JobListing = ({
   positions = 4,
   name = 'Los Robles Hospital',
@@ -27,6 +29,7 @@ export const JobListing = ({
         <div className='flex flex-col w-full'>
           {list.map((listing) => (
             <JobPosition
+              key={uuidv4()} // Would use
               title={listing.job_title}
               job_type={listing.job_type}
               salary_range={listing.salary_range}
@@ -34,6 +37,7 @@ export const JobListing = ({
               summary={listing.description}
               department={listing.department}
               hours={listing.hours}
+              created={listing.created}
             />
           ))}
         </div>

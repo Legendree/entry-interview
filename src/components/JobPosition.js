@@ -1,5 +1,7 @@
-import { is } from '@babel/types';
 import React, { useState } from 'react';
+
+import Moment from 'react-moment';
+
 import { getDepartments } from '../utils/helpers';
 
 export const JobPosition = ({
@@ -10,8 +12,10 @@ export const JobPosition = ({
   department = ['sdsd', 'Sdsdsd', 'sdsd'],
   hours = [12],
   summary = 'summary here',
+  created = Date.now(),
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+
   return (
     <div>
       <button
@@ -22,7 +26,9 @@ export const JobPosition = ({
           <span className='font-bold'>{title}</span>
           <span>{`${job_type} | $${salary_range[0]} - $${salary_range[1]} an hour | ${city}`}</span>
         </div>
-        <span>3 weeks ago</span>
+        <span>
+          <Moment fromNow>{created}</Moment>
+        </span>
       </button>
       {isExpanded && (
         <div className='flex flex-col lg:flex-row w-full lg:items-center'>
