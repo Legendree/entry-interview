@@ -6,6 +6,7 @@ import { SearchBar } from './components/SearchBar';
 import jobs from './data/jobs.json';
 import filters from './data/filters.json';
 import { RightBar } from './components/RightBar';
+import { Footer } from './components/Footer';
 
 export const App = () => {
   const [job, setJob] = useState(jobs);
@@ -43,6 +44,7 @@ export const App = () => {
         <LeftBar data={filters} />
         <RightBar data={job} />
       </div>
+      <Footer />
     </div>
   );
 };
