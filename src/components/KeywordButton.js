@@ -1,13 +1,18 @@
 import React from 'react';
 import { numberWithCommas } from '../utils/helpers';
 
-export const KeywordButton = ({ title, count = '3000', onClick }) => {
+export const KeywordButton = ({
+  title,
+  count = '3000',
+  onClick,
+  className,
+}) => {
   const [isClicked, setIsClicked] = React.useState(false);
 
   return (
     <li className='my-2'>
       <button
-        className='focus:outline-none text-left'
+        className={`${className || 'focus:outline-none text-left'}`}
         onClick={() => {
           onClick();
           setIsClicked(!isClicked);

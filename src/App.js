@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Header } from './components/Header';
 import { LeftBar } from './components/LeftBar';
 import { SearchBar } from './components/SearchBar';
@@ -10,9 +10,13 @@ import { Footer } from './components/Footer';
 import { Department } from './components/Department';
 
 export const App = () => {
-  const [job, setJob] = useState(jobs);
+  const [job, setJob] = useState([]);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [keywords, setKeywords] = useState([]);
+
+  useEffect(() => {
+    setJob(jobs);
+  }, []);
 
   const searchJob = (value) => {
     const searchTerm = value.toLowerCase();
@@ -23,10 +27,7 @@ export const App = () => {
         items: job.items.filter(
           (item) =>
             item.job_title.toLowerCase().includes(searchTerm) ||
-            item.job_type.toLowerCase().includes(searchTerm) ||
-            item.department
-              .map((dep) => dep.toLowerCase())
-              .includes(searchTerm) ||
+            item.department.includes(searchTerm) ||
             item.name.toLowerCase().includes(searchTerm)
         ),
       };
@@ -37,31 +38,40 @@ export const App = () => {
 
   const searchByKeywords = (keywordToAdd) => {
     const index = keywords.indexOf(keywordToAdd);
+
     if (index > -1) {
       const filtered = keywords.splice(index, 1);
       setKeywords(filtered);
     } else {
       setKeywords([...keywords, keywordToAdd]);
     }
-    console.log(keywords);
 
     const filtered = jobs.map((job) => {
       return {
         ...job,
         items: job.items.filter((item) =>
-          item.department.map((dep) =>
-            keywords.map((keyword) =>
-              dep.toLowerCase().includes(keyword.toLowerCase())
-            )
-          )
+          item.department.some((r) => keywords.includes(r))
         ),
       };
     });
 
-    setJob(filtered);
+    setJob(keywords.length !== 0 ? filtered : jobs);
+    console.log(keywords);
   };
 
-  const sortJobs = () => {};
+  // Didn't understand how execatly I suppose to sort by education or role
+  // If I should've assigned levels to sort each property or I should've just sort
+  // by string..
+  //   const sortJobs = (location, role, department, education, experience) => {
+  //    jobs.map((job) => {
+  //      return {
+  //        ...job,
+  //       items: job.items
+  //        .sort((a, b) => a.location > b.location)
+  //        .sort((a, b) => a.experience > b.experience),
+  //    };
+  //  });
+  //};
 
   return (
     <div className='relative flex flex-col flex-1 min-h-screen bg-gray-100'>

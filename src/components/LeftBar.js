@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { numberWithCommas } from '../utils/helpers';
 import { KeywordButton } from './KeywordButton';
 
 export const LeftBar = ({ data, onClickMore, onClickKeyword }) => {
@@ -10,14 +9,12 @@ export const LeftBar = ({ data, onClickMore, onClickKeyword }) => {
         <span className='font-medium'>JOB TYPE</span>
         <ul className='mt-2'>
           {data.job_type.map((job) => (
-            <li className='my-2' key={job.key}>
-              <a href='#'>
-                <span className='mr-2'>{job.key}</span>
-                <span className='text-gray-400'>
-                  {numberWithCommas(job.doc_count)}
-                </span>
-              </a>
-            </li>
+            <KeywordButton
+              key={job.key}
+              title={job.key}
+              count={job.doc_count}
+              onClick={() => onClickKeyword(job.key)}
+            />
           ))}
         </ul>
       </div>
@@ -26,6 +23,7 @@ export const LeftBar = ({ data, onClickMore, onClickKeyword }) => {
         <ul className='mt-2'>
           {data.department.slice(0, 9).map((job) => (
             <KeywordButton
+              key={job.key}
               title={job.key}
               count={job.doc_count}
               onClick={() => onClickKeyword(job.key)}
@@ -45,14 +43,12 @@ export const LeftBar = ({ data, onClickMore, onClickKeyword }) => {
         <span className='font-medium'>WORK SCHEDULE</span>
         <ul className='mt-2'>
           {data.work_schedule.map((job) => (
-            <li className='my-2' key={job.key}>
-              <a href='#'>
-                <span className='mr-2'>{job.key}</span>
-                <span className='text-gray-400'>
-                  {numberWithCommas(job.doc_count)}
-                </span>
-              </a>
-            </li>
+            <KeywordButton
+              key={job.key}
+              title={job.key}
+              count={job.doc_count}
+              onClick={() => onClickKeyword(job.key)}
+            />
           ))}
         </ul>
       </div>
@@ -61,6 +57,7 @@ export const LeftBar = ({ data, onClickMore, onClickKeyword }) => {
         <ul className='mt-2'>
           {data.experience.map((job) => (
             <KeywordButton
+              key={job.key}
               title={job.key}
               count={job.doc_count}
               onClick={() => onClickKeyword(job.key)}
