@@ -21,8 +21,8 @@ Run `yarn start` to start the development server and view the application.
 - [x] Search ability
 - [x] Data being fetched from the FakeAPI provided via jobs.json and filter.json
 - [x] Desktop Design
-- [ ] Sort by options
-- [ ] Filter by categories
+- [ ] Sort by options (Didn't really understand how I am suppose to sort Departments and Education, Role)
+- [x] Partly working filter by categories
 - [x] Resposnive web layout
 - [x] Footer
 - [x] Pop-up window for categories
