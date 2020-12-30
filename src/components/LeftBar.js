@@ -1,8 +1,9 @@
 import React from 'react';
 
 import { numberWithCommas } from '../utils/helpers';
+import { KeywordButton } from './KeywordButton';
 
-export const LeftBar = ({ data, onClickMore }) => {
+export const LeftBar = ({ data, onClickMore, onClickKeyword }) => {
   return (
     <div className='hidden lg:flex flex-col w-64 mr-5'>
       <div className='w-full mb-5 bg-white border border-gray-200 p-3 text-xs'>
@@ -24,14 +25,11 @@ export const LeftBar = ({ data, onClickMore }) => {
         <span className='font-medium'>DEPARTMENT</span>
         <ul className='mt-2'>
           {data.department.slice(0, 9).map((job) => (
-            <li className='my-2' key={job.key}>
-              <a href='#'>
-                <span className='mr-2'>{job.key}</span>
-                <span className='text-gray-400'>
-                  {numberWithCommas(job.doc_count)}
-                </span>
-              </a>
-            </li>
+            <KeywordButton
+              title={job.key}
+              count={job.doc_count}
+              onClick={() => onClickKeyword(job.key)}
+            />
           ))}
           <li className='mt-2'>
             <button
@@ -62,14 +60,11 @@ export const LeftBar = ({ data, onClickMore }) => {
         <span className='font-medium'>EXPERIENCE</span>
         <ul className='mt-2'>
           {data.experience.map((job) => (
-            <li className='my-2' key={job.key}>
-              <a href='#'>
-                <span className='mr-2'>{job.key}</span>
-                <span className='text-gray-400'>
-                  {numberWithCommas(job.doc_count)}
-                </span>
-              </a>
-            </li>
+            <KeywordButton
+              title={job.key}
+              count={job.doc_count}
+              onClick={() => onClickKeyword(job.key)}
+            />
           ))}
         </ul>
       </div>

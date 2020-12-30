@@ -11,7 +11,8 @@ import { Department } from './components/Department';
 
 export const App = () => {
   const [job, setJob] = useState(jobs);
-  const [isPopupOpen, setIsPopupOpen] = React.useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [keywords, setKeywords] = useState([]);
 
   const searchJob = (value) => {
     const searchTerm = value.toLowerCase();
@@ -34,6 +35,32 @@ export const App = () => {
     setJob(filtered);
   };
 
+  const searchByKeywords = (keywordToAdd) => {
+    const index = keywords.indexOf(keywordToAdd);
+    if (index > -1) {
+      const filtered = keywords.splice(index, 1);
+      setKeywords(filtered);
+    } else {
+      setKeywords([...keywords, keywordToAdd]);
+    }
+    console.log(keywords);
+
+    const filtered = jobs.map((job) => {
+      return {
+        ...job,
+        items: job.items.filter((item) =>
+          item.department.map((dep) =>
+            keywords.map((keyword) =>
+              dep.toLowerCase().includes(keyword.toLowerCase())
+            )
+          )
+        ),
+      };
+    });
+
+    setJob(filtered);
+  };
+
   const sortJobs = () => {};
 
   return (
@@ -41,7 +68,11 @@ export const App = () => {
       <Header />
       <SearchBar search={searchJob} />
       <div className='flex lg:mx-5 flex-1'>
-        <LeftBar data={filters} onClickMore={() => setIsPopupOpen(true)} />
+        <LeftBar
+          data={filters}
+          onClickMore={() => setIsPopupOpen(true)}
+          onClickKeyword={searchByKeywords}
+        />
         <RightBar data={job} />
       </div>
       <Footer />
